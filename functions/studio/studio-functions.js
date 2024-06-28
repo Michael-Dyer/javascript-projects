@@ -9,6 +9,16 @@
 // 5. Use console.log(reverseCharacters(myVariableName)); to call the function and verify that it correctly reverses the characters in the string.
 // 6. Optional: Use method chaining to reduce the lines of code within the function.
 
+/*
+mikeString = "Mike";
+
+function reverseCharacters(myStr){
+    newVar = myStr.split("").reverse().join("");
+
+    return newVar;
+}
+*/
+
 // Part Two: Reverse Digits
 
 // 1. Add an if statement to reverseCharacters to check the typeof the parameter.
@@ -16,6 +26,21 @@
 // 3. If typeof is ’number’, convert the parameter to a string, reverse the characters, then convert it back into a number.
 // 4. Return the reversed number.
 // 5. Be sure to print the result returned by the function to verify that your code works for both strings and numbers. Do this before moving on to the next exercise.
+
+
+function reverseCharacters(myStr){
+    if(typeof myStr == "string"){
+        newVar = myStr.split("").reverse().join("");
+    }
+    else if (typeof myStr == "number"){
+        newVar = myStr.toString().split("").reverse().join("");
+        newVar = parseFloat(newVar);
+    }
+
+
+    return newVar;
+}
+
 
 // Part Three: Complete Reversal - Create a new function with one parameter, which is the array we want to change. The function should:
 
@@ -29,6 +54,22 @@
 let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
 let arrayTest2 = [123, 8897, 42, 1168, 8675309];
 let arrayTest3 = ['hello', 'world', 123, 'orange'];
+
+
+
+
+function completeReversal(oldArr){
+    let newArr = [];
+
+    for (let i = 0; i < oldArr.length; i++){
+        newArr.unshift(reverseCharacters(oldArr[i]));
+    }
+
+    return newArr;
+}
+
+console.log(completeReversal(arrayTest3));
+
 
 // Bonus Missions
 
@@ -49,3 +90,4 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // 3. Call your area function by passing in two arguments - the length and width.
 // 4. If only one argument is passed to the function, then the shape is a square. Modify your code to deal with this case.
 // 5. Use a template literal to print, “The area is ____ cm^2.”
+
