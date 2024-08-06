@@ -17,6 +17,10 @@ var up;
 var down;
 var rocket;
 
+let pos = {
+    x: 0,
+    y: 0
+}
 var top;
 var step;
 function myFunc(){
@@ -80,27 +84,36 @@ function abort(){
 
 }
 
-var u;
+var u = parseInt(getComputedStyle(rocket).top);
 var d;
 var l;
 var r;
 
+
+
 function mUp(){
-    u+=10
+    x+=10000;
+    console.log(x)
+    space_shut.innerHTML = x;
+    pos.y-=10
+    rocket.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
 }
 
 function mDown(){
-
+    x-=10000;
+    console.log(x)
+    space_shut.innerHTML = x;
+    pos.y+=10
+    rocket.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
 }
 
 function mLeft(){
-    console.log("test")
-    //document.getElementById("rocket").scrollLeft += 10;    //rocket.style.marginTop 
-    rocket.style
+    pos.x-=10
+    rocket.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
 }
 
 function mRight(){
-    //rocket.style.marginTop += 10px
-
+    pos.x+=10
+    rocket.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
 }
 
